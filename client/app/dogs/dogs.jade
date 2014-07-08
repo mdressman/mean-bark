@@ -1,0 +1,41 @@
+div(ng-include='"components/navbar/navbar.html"')
+
+header#banner.hero-unit
+  .container
+    h1 All of the dogs!
+    p.lead Bark.
+
+    //- h2 Sign in.
+    //- div(google-signin client-id="558866788030-ogouqt1pmas68ifjo2i3un7ctv82prm8" after-signin="signedIn(oauth)")
+    //- pre {{ user | json }}
+
+.container
+  .row
+    .col-lg-12
+      input.search.form-control(type='text', placeholder='Search dog\'s or owner\'s name', ng-model='search.$')
+      input.search.form-control(type='text', placeholder='Search dogs', ng-model='search.name')
+      input.search.form-control(type='text', placeholder='Search owners', ng-model='search.owner')
+
+  .row
+    .col-lg-12
+      h1.page-header Featuring...
+      ul.nav.nav-tabs.nav-stacked.col-lg-6(ng-repeat='dog in dogs | filter:search:strict')
+        li
+          a(tooltip='Parent(s): {{dog.owner}}' ng-click='openLightbox(dog)')
+            | {{dog.name}}
+            button.close(type='button', ng-click='deleteDog(dog)') ×
+
+
+  form.dog-form
+    label Syncs in realtime across clients
+    p.input-group
+      input.form-control(type='text', placeholder='Name?', ng-model='dog.name')
+      input.form-control(type='text', placeholder='Owner?', ng-model='dog.owner')
+      input.form-control(type='text', placeholder='Image?', ng-model='dog.image')
+      span.input-group-btn
+        button.btn.btn-primary(type='submit', ng-click='addDog()') Add New
+
+footer.footer
+  .container
+    p
+      a(href='https://github.com/mdressman') github/mdressman

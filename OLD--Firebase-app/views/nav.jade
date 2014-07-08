@@ -1,0 +1,21 @@
+nav.navbar.navbar-default(role="navigation")
+  <!-- Brand and toggle get grouped for better mobile display -->
+  .navbar-header
+    button.navbar-toggle(type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1")
+      span.sr-only Toggle navigation
+      span.icon-bar
+      span.icon-bar
+      span.icon-bar
+    a.navbar-brand(href="#") Bark.
+ 
+  <!-- Collect the nav links, forms, and other content for toggling -->
+  #bs-example-navbar-collapse-1.collapse.navbar-collapse(ng-controller="NavCtrl")
+    form.navbar-form.navbar-left(role="search" ng-submit="submitDog()")
+      .form-group
+        input.form-control(type="text" placeholder="Name" ng-model="dog.name")
+      .form-group
+        input.form-control(type="text" placeholder="Owner" ng-model="dog.owner")
+      .form-group
+        input.form-control(type="text" placeholder="Image" ng-model="dog.image")
+
+      button.btn.btn-default(type="submit") Submit

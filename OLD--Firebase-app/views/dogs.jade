@@ -1,0 +1,12 @@
+.dogs-page.container
+  .dog.row(ng-repeat="(dogId, dog) in dogs")
+    .col-xs-1
+    .col-md-9.col-xs-11
+      .info
+        h3
+          a(href="#/dogs/{{dogId}}") {{ dog.name }}
+        p {{ dog.owner }}
+        p {{ dog.image }}
+      .actions
+        a(ng-click="deleteDog(dogId)") delete
+    .col-md-2
